@@ -83,13 +83,20 @@ class Player {
     eatItem(itemName) {
         // Allow the player to eat food items, but not non-food items
         for (let food of this.items)
-
+       /// items in invotory
             if (food instanceof Food) {
-                if (itemName === food.name) {
+                if (itemName === food.name ) {
+
+                    if(itemName === "potion"){
+                    this.items.splice(food, 1);
+                     return console.log(`${this.name} consumed potion, ${this.name}'s hp is now ${this.hp +=50}`)
+                   }
 
                     this.items.splice(food, 1)
                     console.log(`${this.name} ate ${itemName}, ${this.name}'s hp is now ${this.hp += 10}`)
                 }
+            }else {
+                console.log(`${itemName} is not food ` )
             }
         // Your code here
     }
@@ -106,14 +113,17 @@ class Player {
 
 
 
-
+// attacks enimies
     attackEnimie(weapon) {
+     // if there is enimie in room run code
         if (this.currentRoom.enimies.length > 0) {
 
 
-
+     // checking if player has weapon in thier inventory
             for (let weapons of this.items)
+            // checking if the item is instance of weapon class
                 if (weapons instanceof Weapon || (weapons.name === "rock")) {
+                // if the weapon youre using
                     if (weapon === weapons.name) {
 
 
@@ -139,6 +149,7 @@ class Player {
                         }, 4000);
 
                        setTimeout(() =>{if (this.hp <= 0) {
+                         console.log(`${this.name}'s hp is ${this.hp}... you died `)
                             throw new Error("GameOver!");
 
 

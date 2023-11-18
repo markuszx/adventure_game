@@ -43,7 +43,15 @@ module.exports = {
             description: "A tasty looking sandwich",
             room: 2,
             isFood: true
+        },
+        {
+            name: "potion",
+            description: " restores health",
+            room: 3,
+            isPotion: true
+
         }
+
     ],
     enimies: [
           {

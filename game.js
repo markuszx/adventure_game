@@ -4,6 +4,7 @@ const { Player } = require('./class/player');
 const { World } = require('./class/world');
 
 const worldData = require('./data/world-data');
+const { builtinModules } = require('module');
 
 
 let player;
@@ -108,3 +109,35 @@ function processCommand() {
 }
 
 startGame()
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+make multiplayer
+add goblins
+make enimies spon randomly
+run into vilage rearly
+make slim monster
+make level up for player when enough xp is built
+game pregrasivly get harder as you progress
+slim monsters spon smaler slim mosters whan they die
+differt areas with differnt kind of loot
+make wand that shoots tini wonds
+make black hold gun rear destroys everthing
+make hand abilitys like magic aquirable
+make time and space its self
+
+
+
+
+*/

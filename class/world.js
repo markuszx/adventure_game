@@ -55,12 +55,18 @@ class World {
 
 
             }
-             if(!(itemData.isFood)){
-                let item = new Item(itemData.name, itemData.description,  10)
+           else if(itemData.isPotion){
+                let potion = new Food(itemData.name, itemData.description);
 
-                this.rooms[1].items.push(item)
-
+                this.rooms[3].items.push(potion)
              }
+
+            //  if(!(itemData.isFood) || !(itemData.isPotion)){
+                else {let item = new Item(itemData.name, itemData.description,  10)
+
+                this.rooms[1].items.push(item)}
+
+            //  }
 
 
         }
