@@ -50,16 +50,29 @@ class Player {
     }
 
     takeItem(itemName) {
-        // Picks up an item from the current room into the player's inventory
+        //Picks up an item from the current room into the player's inventory
 
-        for (let item of this.currentRoom.items) {
-            if (itemName === item.name)
+        // for (let item of this.currentRoom.items) {
+        //     if (itemName === item.name)
 
-                this.items.push(item)
-            console.log(`${this.name} has taken ${itemName}`)
-            this.currentRoom.items.splice(item, 1)
+        //         this.items.push(item)
+        //     console.log(`${this.name} has taken ${itemName}`)
+        //     this.currentRoom.items.splice(item, 1);
+        //     return;
 
+        // }
+
+        for (const item of this.currentRoom.items) {
+            if (itemName === item.name) {
+                this.items.push(item);
+                console.log(`${this.name} has taken ${itemName}`);
+                this.currentRoom.items = this.currentRoom.items.filter(currentItem => currentItem !== item);
+                return;
+
+            }
         }
+
+        console.log(`${itemName} not found in the current room.`);
 
 
 
