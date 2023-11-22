@@ -1,6 +1,6 @@
 const readline = require('readline');
 
-const { Player } = require('./class/player');
+ const { Player } = require('./class/player');
 const { World } = require('./class/world');
 
 const worldData = require('./data/world-data');
@@ -27,7 +27,7 @@ function printHelp() {
     console.log("");
 }
 
-function startGame() {
+startGame = () => {
     console.clear();
     console.log("Welcome to App Academy Adventure!\n");
 
@@ -56,11 +56,16 @@ function startGame() {
 
 
 function processCommand() {
+      if(player.hp <= 0) {
+        console.log("GameOver");
+        return setTimeout(()=> startGame(), 3000)
 
+      }
     rl.question('> ', (cmd) => {
         cmd = cmd.toLowerCase();
 
         if (cmd === 'h') {
+
             printHelp();
             return;
 
@@ -108,7 +113,7 @@ function processCommand() {
     });
 }
 
-startGame()
+ startGame();
 
 
 
@@ -116,8 +121,7 @@ startGame()
 
 
 
-
-
+module.exports = {startGame}
 
 
 
